@@ -1,0 +1,61 @@
+<?php
+
+use Drupal\user\Entity\Role;
+
+function commerce_adyen_dropin_preprocess_html_tag(&$vars) {
+  $tag = $vars['element']['#tag'];
+  if ($tag == 'script' && strpos($vars['element']['#value'], 'jQuery.extend(Drupal.settings') === 0) {
+    $vars['element']['#attributes']['cf-async'] = 'false';
+  }
+}
+
+/**
+ * Implements hook_install
+ * Actions to perform during module install.
+ *
+ */
+function commerce_adyen_dropin_install() {
+  //Grant necessary permissions to users
+  $anonymous = Role::load('anonymous');
+  $authenticated = Role::load('authenticated');
+
+  $permissions = [
+    'restful post adyen_webhook'
+  ];
+
+  $roles = [
+    $anonymous,
+    $authenticated
+  ];
+
+  foreach ($roles as $role) {
+    foreach ($permissions as $permission) {
+      $role->grantPermission($permission);
+      $role->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_adyen_dropin_theme($existing, $type, $theme, $path) {
+  return [
+    'message_error' => [
+      'variables' => ['message' => NULL],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_config_schema_info_alter().
+ */
+function commerce_adyen_dropin_config_schema_info_alter(&$definitions) {
+  if (!empty($definitions['commerce_payment_gateway_configuration'])) {
+    $definitions['commerce_payment_gateway_configuration']['mapping']['error_message'] = [
+      'type' => 'text_format',
+      'label' => 'Error message',
+      'translatable' => true
+    ];
+  }
+}

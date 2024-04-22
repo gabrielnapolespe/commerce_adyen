@@ -1,0 +1,22 @@
+status: false
+dependencies:
+  module:
+    - commerce_adyen_dropin
+id: adyen
+label: Adyen
+weight: null
+plugin: adyen_dropin
+configuration:
+  display_label: 'Adyen Drop-In'
+  mode: test
+  payment_method_types:
+    - credit_card
+  collect_billing_information: false
+  merchant_account: PLACEHOLDER
+  api_key: PLACEHOLDER
+  client_key: PLACEHOLDER
+  prefix: PLACEHOLDER
+  error_message: ''
+  logger: false
+conditions: {  }
+conditionOperator: AND

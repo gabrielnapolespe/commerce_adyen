@@ -1,0 +1,19 @@
+commerce_adyen_dropin.create_payment:
+  path: 'commerce_dropin_adyen/order/complete/{commerce_order}/{step}'
+  defaults:
+    _controller: 'Drupal\commerce_adyen_dropin\Controllers\CheckoutController::redirect'
+    _title: 'Complete payment'
+    step: null
+  requirements:
+    _access: 'TRUE'
+  options:
+      parameters:
+        commerce_order:
+          type: entity:commerce_order
+commerce_adyen_dropin.message:
+  path: 'commerce_dropin_adyen/order/message/{commerce_order}'
+  defaults:
+    _controller: 'Drupal\commerce_adyen_dropin\Controllers\CheckoutController::message'
+    _title: 'Message in payment'
+  requirements:
+    _access: 'TRUE'

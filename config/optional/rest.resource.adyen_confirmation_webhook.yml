@@ -1,0 +1,16 @@
+status: true
+dependencies:
+  module:
+    - commerce_adyen_dropin
+    - serialization
+    - user
+id: adyen_confirmation_webhook
+plugin_id: adyen_confirmation_webhook
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

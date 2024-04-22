@@ -1,0 +1,16 @@
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - commerce_adyen_dropin
+    - serialization
+id: adyen_webhook
+plugin_id: adyen_webhook
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - json
+  authentication:
+    - basic_auth

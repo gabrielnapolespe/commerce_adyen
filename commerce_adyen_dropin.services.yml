@@ -1,0 +1,6 @@
+services:
+  adyen.service:
+    class: Drupal\commerce_adyen_dropin\Services\AdyenService
+  adyen.logger:
+    class: Drupal\commerce_adyen_dropin\Services\AdyenLogger
+    arguments: ['@entity_type.manager', '@logger.factory', '@config.factory']

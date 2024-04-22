@@ -1,0 +1,15 @@
+name: Commerce Adyen Drop-In
+description: 'Adds Adyen Payments methods using Drop-In integration'
+package: Commerce
+
+type: module
+core_version_requirement: ^8.8.0 || ^9.0 || ^10
+'interface translation project': commerce_adyen_dropin
+'interface translation server pattern': modules/custom/%project/translations/%project.%language.po
+dependencies:
+  - commerce:commerce
+  - commerce:commerce_order
+  - commerce:commerce_payment
+  - drupal:basic_auth
+  - drupal:rest
+  - restui:restui

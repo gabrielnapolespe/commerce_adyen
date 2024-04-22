@@ -1,0 +1,28 @@
+adyen_dropin_js:
+  version: 1.x
+  header: true
+  js:
+    https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.51.0/adyen.js: {
+        attributes: {
+          integrity : "sha384-FJWX32BY0zx3KKed9gdiWxoEAEsA3uh1ixchmdkflgtcDo+SoYg5ZD6uqvDmnafO",
+          crossorigin : "anonymous"
+          },
+          weight: 0
+    }
+  css:
+    component:
+      https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/5.51.0/adyen.css: {
+          attributes: {
+            integrity : "sha384-k6qYnmoHaucEm97eQQAs3MK5e44JQ2sksrue2tfdDOnnedKzc0VYQwxzdYWZu8Mj",
+            crossorigin : "anonymous"
+            },
+            weight: 0
+      }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.message
+mount:
+  version: 1.x
+  js:
+    js/mount.js: {}

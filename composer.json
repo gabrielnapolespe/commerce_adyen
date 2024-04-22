@@ -1,0 +1,9 @@
+{
+    "name": "drupal/commerce_adyen_dropin",
+    "type": "drupal-module",
+    "description": "Provides Commerce Drop-In Only integration for Adyen Payments.",
+    "require": {
+        "adyen/php-api-library" : "15.0.0@beta",
+        "drupal/restui" : "^1.20"
+    }
+}
